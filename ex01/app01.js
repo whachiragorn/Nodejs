@@ -60,10 +60,62 @@
 // util.log("a -- "+a);
 // util.log("b -- " +b);
 
-var assert = require('assert');
+// var assert = require('assert');
 
-function add(a, b) {
-    return a + b;
-}
-var expected = add(1, 2);
-assert(expected === 4, 'one plus two is three');
+// function add(a, b) {
+//     return a + b;
+// }
+// var expected = add(1, 2);
+// assert(expected === 4, 'one plus two is three');
+
+//sprit file to json
+// var buf = new Buffer('Hello World')
+// var json = buf.toJSON(buf)
+// console.log(json)
+
+//crypto text
+// var crypto=require('crypto');
+// var fs=require('fs');
+// var shasum = crypto.createHash('sha1');
+// var s = fs.ReadStream('file.txt');
+// s.on('data',function(d) {
+// shasum.update(d);
+// });
+// s.on('end',function() {
+// var d = shasum.digest('hex');
+// console.log(d+' file.txt');
+// });
+
+//lookup ip
+// var dns = require('dns');
+// dns.lookup('www.google.com', function
+// onLookup(err,addresses, family) {
+// console.log('addresses:', addresses);
+// });
+
+//Write file
+// var fs=require('fs');
+// fs.writeFile('message.txt','Hello Node',
+// function(err) {
+// if(err) throw err;
+// console.log('It\'s saved!');});
+
+//Write with mkdir
+var fs=require('fs')
+ var crypto=require('crypto')
+var readMe = fs.readFileSync('./user.txt','base64').split('\n')
+var shasum = crypto.createHash('sha1')
+
+var readMe = readMe[0]
+
+
+shasum.update(readMe[1]);
+shasum = shasum.digest('hex')
+
+console.log("id "+readMe)
+console.log("pass "+shasum)
+
+fs.mkdir('data', function(){
+fs.writeFileSync('./data/Output.txt', readMe +"\n"+ shasum)
+
+})
