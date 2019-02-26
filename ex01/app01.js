@@ -103,13 +103,13 @@
 //Write with mkdir
 var fs=require('fs')
  var crypto=require('crypto')
-var readMe = fs.readFileSync('./user.txt','base64').split('\n')
+var readMe = fs.readFileSync('./user.txt','utf8').split('\n')
 var shasum = crypto.createHash('sha1')
 
-var readMe = readMe[0]
+// var readMe = readMe
 
 
-shasum.update(readMe[1]);
+// shasum.update(readMe[1]);
 shasum = shasum.digest('hex')
 
 console.log("id "+readMe)
